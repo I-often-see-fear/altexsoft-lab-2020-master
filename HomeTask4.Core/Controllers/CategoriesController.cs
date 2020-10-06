@@ -47,7 +47,7 @@ namespace HomeTask4.Core.Controllers
             return await UnitOfWork.Repository.GetListWhereAsync<Category>(x => x.ParentId == categoryId);
         }
 
-        public async Task AddAsync(string nameCategory, string parentСategoryName)
+        public async Task AddCategoryAsync(string nameCategory, string parentСategoryName)
         {
             try
             {
@@ -62,14 +62,14 @@ namespace HomeTask4.Core.Controllers
             }
         }
 
-        public async Task RenameAsync(int categoryId, string newName)
+        public async Task RenameCategoryAsync(int categoryId, string newName)
         {
             Category category = await GetCategoryByIdAsync(categoryId);
             category.Name = newName;
             await UnitOfWork.Repository.UpdateAsync(category);
         }
 
-        public async Task DeleteAsync(int categoryId)
+        public async Task DeleteCategoryAsync(int categoryId)
         {
             Category parent = await GetCategoryByIdAsync(categoryId);
             if (parent.ParentId == 0)
