@@ -47,7 +47,7 @@ namespace HomeTask4.Core.Controllers
             return await UnitOfWork.Repository.GetListWhereAsync<Category>(x => x.ParentId == categoryId);
         }
 
-        public async Task AddAsync(string nameCategory, string parentСategoryName)
+        public async Task AddCategoryAsync(string nameCategory, string parentСategoryName)
         {
             try
             {
